@@ -1,0 +1,24 @@
+app = "your-app-name-here" # 👉 修改这里！
+primary_region = "hkg" # 如果在内陆，建议香港
+
+[build]
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = true # 无访问时自动关机（实现免费）
+  auto_start_machines = true
+  min_machines_running = 0  # 核心：设为0
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 256 # 强制设定为最低内存
+
+# 增加健康检查，提高唤醒成功率
+[[http_service.checks]]
+  grace_period = "2s"
+  interval = "15s"
+  method = "get"
+  path = "/health"
+  timeout = "2s"
