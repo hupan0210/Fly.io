@@ -1,0 +1,12 @@
+{
+  "name": "fly-free-test",
+  "version": "1.0.0",
+  "description": "Minimal test app for Fly.io",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "fastify": "^4.26.1"
+  }
+}
